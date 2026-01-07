@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Harmony Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Stellar Background Effects -->
+    <div id="galaxy-bg"></div>
+    <div class="nebula-overlay"></div>
+    <div id="particles-js"></div>
+    <div class="stellar-field" id="stellarField"></div>
+    <div class="wormhole" id="wormhole"></div>
+    <div class="quantum-wave"></div>
+    <div class="neural-network" id="neuralNetwork"></div>
+    
+    <!-- Tesla Coil Effects -->
+    <div class="tesla-coil" style="left: 10%; top: 20%;"></div>
+    <div class="tesla-coil" style="right: 10%; top: 30%;"></div>
+    <div class="tesla-coil" style="left: 15%; bottom: 25%;"></div>
+    <div class="tesla-coil" style="right: 20%; bottom: 15%;"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="quantum-loader">
+                <div class="quantum-dot"></div>
+                <div class="quantum-dot"></div>
+                <div class="quantum-dot"></div>
+                <div class="quantum-dot"></div>
+                <div class="quantum-ring"></div>
+                <div class="quantum-arc"></div>
+            </div>
+            <p class="loading-text">Initializing Neural Network Scanner...</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="loading-stats">
+                <span>Quantum Particles: <span id="particleCount">0</span></span>
+                <span>Neural Connections: <span id="neuralCount">0</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neural Nodes -->
+    <div class="neural-node" style="top: 15%; left: 5%;" data-connected="2,5,8"></div>
+    <div class="neural-node" style="top: 25%; right: 10%;" data-connected="1,3,7"></div>
+    <div class="neural-node" style="bottom: 20%; left: 15%;" data-connected="4,6,9"></div>
+    <div class="neural-node" style="bottom: 30%; right: 5%;" data-connected="3,5,8"></div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element el1"></div>
+    <div class="floating-element el2"></div>
+    <div class="floating-element el3"></div>
+    <div class="floating-element el4"></div>
+    <div class="floating-element el5"></div>
+    <div class="floating-element el6"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="hologram-effect"></div>
+            <div class="pulse-ring"></div>
+            <div class="cyber-grid"></div>
+            <h1 class="cosmic-title">
+                <i class="fas fa-infinity title-icon"></i>
+                <span class="title-main">COSMIC HARMONY ANALYZER</span>
+                <span class="title-sub">Decoding Your Quantum Connection with Divine & Danav Energies</span>
+                <span class="title-tagline">Sankalp Shakti Social Foundation</span>
+            </h1>
+            <div class="scan-line"></div>
+            <div class="header-glow"></div>
+        </header>
+
+        <!-- Mode Selection -->
+        <div class="mode-selection">
+            <div class="mode-tabs">
+                <button class="mode-tab active" id="singleModeTab">
+                    <i class="fas fa-user"></i>
+                    <span>Single Analysis</span>
+                </button>
+                <button class="mode-tab" id="matchingModeTab">
+                    <i class="fas fa-heart"></i>
+                    <span>Matching Analysis</span>
+                </button>
+            </div>
+            <div class="mode-indicator"></div>
+        </div>
+
+        <!-- Single Analysis Form -->
+        <section class="input-section active" id="singleAnalysisSection">
+            <div class="section-glow"></div>
+            <div class="cyber-border"></div>
+            <h2 class="section-title">
+                <i class="fas fa-user-astronaut"></i>
+                <span>Enter Your Cosmic Details</span>
+            </h2>
+            <form id="cosmicForm">
+                <div class="form-group">
+                    <label for="dob">
+                        <i class="fas fa-calendar-star"></i>
+                        <span>Date of Birth (DD-MM-YYYY)</span>
+                    </label>
+                    <div class="input-container">
+                        <input type="text" id="dob" placeholder="e.g., 15-08-1990" required pattern="\d{2}-\d{2}-\d{4}">
+                        <div class="input-highlight"></div>
+                        <div class="input-glow"></div>
+                        <div class="input-particles"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">
+                        <i class="fas fa-signature"></i>
+                        <span>Full Name</span>
+                    </label>
+                    <div class="input-container">
+                        <input type="text" id="fullName" placeholder="e.g., JOHN DOE" required>
+                        <div class="input-highlight"></div>
+                        <div class="input-glow"></div>
+                        <div class="input-particles"></div>
+                    </div>
+                    <p class="help-text">Enter your name in English capital letters</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Number</span>
+                    </label>
+                    <div class="input-container">
+                        <input type="text" id="mobile" placeholder="e.g., 9876543210" required pattern="\d{10}">
+                        <div class="input-highlight"></div>
+                        <div class="input-glow"></div>
+                        <div class="input-particles"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-at"></i>
+                        <span>Email Address</span>
+                    </label>
+                    <div class="input-container">
+                        <input type="email" id="email" placeholder="e.g., johndoe@example.com" required>
+                        <div class="input-highlight"></div>
+                        <div class="input-glow"></div>
+                        <div class="input-particles"></div>
+                    </div>
+                    <p class="help-text">Only part before '@' will be used</p>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" id="analyzeBtn">
+                        <i class="fas fa-rocket"></i>
+                        <span>Launch Neural Analysis</span>
+                        <div class="btn-particles"></div>
+                        <div class="btn-glow"></div>
+                        <div class="btn-sparkle"></div>
+                    </button>
+                    <div class="btn-shadow"></div>
+                    <div class="btn-energy"></div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Matching Analysis Form -->
+        <section class="input-section" id="matchingAnalysisSection">
+            <div class="section-glow"></div>
+            <div class="cyber-border"></div>
+            <h2 class="section-title">
+                <i class="fas fa-heart"></i>
+                <span>Enter Cosmic Details for Matching</span>
+            </h2>
+            
+            <div class="matching-forms-container">
+                <!-- Person 1 Form -->
+                <div class="person-form">
+                    <h3 class="person-title">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Person 1 Details</span>
+                    </h3>
+                    <div class="form-group">
+                        <label for="person1Name">
+                            <i class="fas fa-signature"></i>
+                            <span>Full Name</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="text" id="person1Name" placeholder="e.g., JOHN DOE" required>
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="person1DOB">
+                            <i class="fas fa-calendar-star"></i>
+                            <span>Date of Birth (DD-MM-YYYY)</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="text" id="person1DOB" placeholder="e.g., 15-08-1990" required pattern="\d{2}-\d{2}-\d{4}">
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="person1Mobile">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Number</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="text" id="person1Mobile" placeholder="e.g., 9876543210" required pattern="\d{10}">
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="person1Email">
+                            <i class="fas fa-at"></i>
+                            <span>Email Address</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="email" id="person1Email" placeholder="e.g., johndoe@example.com" required>
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Person 2 Form -->
+                <div class="person-form">
+                    <h3 class="person-title">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Person 2 Details</span>
+                    </h3>
+                    <div class="form-group">
+                        <label for="person2Name">
+                            <i class="fas fa-signature"></i>
+                            <span>Full Name</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="text" id="person2Name" placeholder="e.g., JANE SMITH" required>
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="person2DOB">
+                            <i class="fas fa-calendar-star"></i>
+                            <span>Date of Birth (DD-MM-YYYY)</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="text" id="person2DOB" placeholder="e.g., 20-05-1992" required pattern="\d{2}-\d{2}-\d{4}">
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="person2Mobile">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Number</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="text" id="person2Mobile" placeholder="e.g., 9876543211" required pattern="\d{10}">
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="person2Email">
+                            <i class="fas fa-at"></i>
+                            <span>Email Address</span>
+                        </label>
+                        <div class="input-container">
+                            <input type="email" id="person2Email" placeholder="e.g., janesmith@example.com" required>
+                            <div class="input-highlight"></div>
+                            <div class="input-glow"></div>
+                            <div class="input-particles"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button type="button" id="matchingAnalyzeBtn">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Calculate Group Match</span>
+                    <div class="btn-particles"></div>
+                    <div class="btn-glow"></div>
+                    <div class="btn-sparkle"></div>
+                </button>
+                <div class="btn-shadow"></div>
+                <div class="btn-energy"></div>
+            </div>
+        </section>
+
+        <!-- Steps Section -->
+        <section class="steps-section hidden" id="stepsSection">
+            <div class="section-glow"></div>
+            <div class="cyber-border"></div>
+            <h2 class="section-title">
+                <i class="fas fa-cogs"></i>
+                <span>Quantum Calculation Steps</span>
+            </h2>
+            <div class="steps-container" id="stepsContainer"></div>
+            <div class="scan-line"></div>
+            <div class="steps-energy"></div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section hidden" id="resultsSection">
+            <div class="section-glow"></div>
+            <div class="cyber-border"></div>
+            <h2 class="section-title">
+                <i class="fas fa-chart-network"></i>
+                <span>Cosmic Harmony Results</span>
+            </h2>
+
+            <!-- Core Numbers -->
+            <div class="single-numbers-display">
+                <h3 class="subsection-title">
+                    <i class="fas fa-atom"></i>
+                    <span>Your Quantum Core Numbers</span>
+                </h3>
+                <div class="numbers-grid">
+                    <div class="number-card">
+                        <div class="card-glow"></div>
+                        <div class="card-particle"></div>
+                        <div class="card-energy"></div>
+                        <span class="number-label">Date of Birth</span>
+                        <span class="number-value" id="dobFinal">-</span>
+                        <div class="number-ring"></div>
+                        <div class="number-arc"></div>
+                    </div>
+                    <div class="number-card">
+                        <div class="card-glow"></div>
+                        <div class="card-particle"></div>
+                        <div class="card-energy"></div>
+                        <span class="number-label">Name</span>
+                        <span class="number-value" id="nameFinal">-</span>
+                        <div class="number-ring"></div>
+                        <div class="number-arc"></div>
+                    </div>
+                    <div class="number-card">
+                        <div class="card-glow"></div>
+                        <div class="card-particle"></div>
+                        <div class="card-energy"></div>
+                        <span class="number-label">Mobile</span>
+                        <span class="number-value" id="mobileFinal">-</span>
+                        <div class="number-ring"></div>
+                        <div class="number-arc"></div>
+                    </div>
+                    <div class="number-card">
+                        <div class="card-glow"></div>
+                        <div class="card-particle"></div>
+                        <div class="card-energy"></div>
+                        <span class="number-label">Email</span>
+                        <span class="number-value" id="emailFinal">-</span>
+                        <div class="number-ring"></div>
+                        <div class="number-arc"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zones -->
+            <div class="danger-zones">
+                <div class="danger-pulse"></div>
+                <div class="danger-energy"></div>
+                <h3 class="subsection-title">
+                    <i class="fas fa-radiation-alt"></i>
+                    <span>Quantum Danger Zones Analysis</span>
+                </h3>
+                <div class="zones-grid">
+                    <div class="zone-card" id="zone18">
+                        <div class="danger-glow"></div>
+                        <div class="zone-energy"></div>
+                        <h4 class="zone-title">Father & Son (Surya vs Shani)</h4>
+                        <p class="zone-desc">Numbers: 1 & 8</p>
+                        <div class="zone-indicator">
+                            <i class="fas fa-question"></i>
+                            <div class="zone-ring"></div>
+                            <div class="zone-arc"></div>
+                        </div>
+                        <p class="zone-status" id="status18">Status: Analyzing...</p>
+                        <p class="zone-message" id="message18"></p>
+                        <div class="zone-particles"></div>
+                    </div>
+                    <div class="zone-card" id="zone36">
+                        <div class="danger-glow"></div>
+                        <div class="zone-energy"></div>
+                        <h4 class="zone-title">Gurus' Discord (Dev vs Danav)</h4>
+                        <p class="zone-desc">Numbers: 3 & 6</p>
+                        <div class="zone-indicator">
+                            <i class="fas fa-question"></i>
+                            <div class="zone-ring"></div>
+                            <div class="zone-arc"></div>
+                        </div>
+                        <p class="zone-status" id="status36">Status: Analyzing...</p>
+                        <p class="zone-message" id="message36"></p>
+                        <div class="zone-particles"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Analysis -->
+            <div class="group-analysis">
+                <h3 class="subsection-title">
+                    <i class="fas fa-users"></i>
+                    <span>Quantum Group Harmony</span>
+                </h3>
+                <div class="groups-grid">
+                    <div class="group-card" data-group="A">
+                        <div class="card-glow"></div>
+                        <div class="group-energy"></div>
+                        <h4 class="group-title">Group A (Deva / Divine)</h4>
+                        <p class="group-numbers">Numbers: 1, 2, 3, 9</p>
+                        <div class="indicator" id="indicatorA">
+                            <i class="fas fa-question"></i>
+                            <div class="indicator-ring"></div>
+                            <div class="indicator-arc"></div>
+                        </div>
+                        <p class="group-message" id="messageA">Calculating...</p>
+                        <div class="group-particles"></div>
+                    </div>
+                    <div class="group-card" data-group="B">
+                        <div class="card-glow"></div>
+                        <div class="group-energy"></div>
+                        <h4 class="group-title">Group B (Danav / Asura)</h4>
+                        <p class="group-numbers">Numbers: 4, 6, 7, 8</p>
+                        <div class="indicator" id="indicatorB">
+                            <i class="fas fa-question"></i>
+                            <div class="indicator-ring"></div>
+                            <div class="indicator-arc"></div>
+                        </div>
+                        <p class="group-message" id="messageB">Calculating...</p>
+                        <div class="group-particles"></div>
+                    </div>
+                </div>
+                <div class="group-stats" id="groupStats">
+                    <div class="stat-item">
+                        <span class="stat-label">Group A Numbers:</span>
+                        <span class="stat-value" id="groupACount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Group B Numbers:</span>
+                        <span class="stat-value" id="groupBCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Neutral (5):</span>
+                        <span class="stat-value" id="neutralCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Report -->
+            <div class="personal-report" id="reportSection">
+                <div class="report-glow"></div>
+                <div class="report-energy"></div>
+                <h3 class="subsection-title">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Neural Network Report</span>
+                </h3>
+                <div class="report-content" id="reportContent">
+                    <div class="report-item">
+                        <h4>Danger Zone Analysis</h4>
+                        <p id="dangerReport1">Analyzing Father & Son conflict...</p>
+                        <p id="dangerReport2">Analyzing Gurus' Discord...</p>
+                    </div>
+                    <div class="report-item">
+                        <h4>Group Membership</h4>
+                        <p id="groupReport">Analyzing your primary group...</p>
+                    </div>
+                    <div class="report-item">
+                        <h4>Quantum Recommendations</h4>
+                        <p id="recommendations">Generating neural recommendations...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons" id="actionButtons">
+                <button id="downloadReport" class="action-btn download-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Download Neural Report</span>
+                    <div class="action-energy"></div>
+                </button>
+                <button id="shareWhatsApp" class="action-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Share Quantum Analysis</span>
+                    <div class="action-energy"></div>
+                </button>
+                <button id="view3D" class="action-btn view3d-btn">
+                    <i class="fas fa-cube"></i>
+                    <span>3D Visualization</span>
+                    <div class="action-energy"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Matching Results Section -->
+        <section class="matching-results-section hidden" id="matchingResultsSection">
+            <div class="section-glow"></div>
+            <div class="cyber-border"></div>
+            <h2 class="section-title">
+                <i class="fas fa-heart"></i>
+                <span>Group Matching Results</span>
+            </h2>
+
+            <!-- Matching Status Card -->
+            <div class="matching-status-card" id="matchingStatusCard">
+                <div class="match-glow"></div>
+                <div class="match-energy"></div>
+                <div class="match-indicator">
+                    <i class="fas fa-heartbeat" id="matchIcon"></i>
+                    <div class="match-ring"></div>
+                    <div class="match-arc"></div>
+                </div>
+                <h3 class="match-title" id="matchTitle">Calculating Group Match...</h3>
+                <p class="match-score" id="matchScore">Match Status: <span>Analyzing...</span></p>
+                <p class="match-message" id="matchMessage">Analyzing group compatibility...</p>
+                <div class="match-particles"></div>
+            </div>
+
+            <!-- Person 1 Details -->
+            <div class="person-details-container">
+                <div class="person-details-card">
+                    <div class="person-glow"></div>
+                    <h3 class="person-title-result">
+                        <i class="fas fa-user-astronaut"></i>
+                        <span id="person1NameDisplay">Person 1</span>
+                    </h3>
+                    <div class="person-numbers-grid">
+                        <div class="person-number-card">
+                            <span class="person-number-label">Date of Birth</span>
+                            <span class="person-number-value" id="person1DOBFinal">-</span>
+                        </div>
+                        <div class="person-number-card">
+                            <span class="person-number-label">Name</span>
+                            <span class="person-number-value" id="person1NameFinal">-</span>
+                        </div>
+                        <div class="person-number-card">
+                            <span class="person-number-label">Mobile</span>
+                            <span class="person-number-value" id="person1MobileFinal">-</span>
+                        </div>
+                        <div class="person-number-card">
+                            <span class="person-number-label">Email</span>
+                            <span class="person-number-value" id="person1EmailFinal">-</span>
+                        </div>
+                    </div>
+                    <div class="person-group-info">
+                        <h4>Group Analysis:</h4>
+                        <p id="person1GroupInfo">Calculating...</p>
+                    </div>
+                </div>
+
+                <!-- Person 2 Details -->
+                <div class="person-details-card">
+                    <div class="person-glow"></div>
+                    <h3 class="person-title-result">
+                        <i class="fas fa-user-astronaut"></i>
+                        <span id="person2NameDisplay">Person 2</span>
+                    </h3>
+                    <div class="person-numbers-grid">
+                        <div class="person-number-card">
+                            <span class="person-number-label">Date of Birth</span>
+                            <span class="person-number-value" id="person2DOBFinal">-</span>
+                        </div>
+                        <div class="person-number-card">
+                            <span class="person-number-label">Name</span>
+                            <span class="person-number-value" id="person2NameFinal">-</span>
+                        </div>
+                        <div class="person-number-card">
+                            <span class="person-number-label">Mobile</span>
+                            <span class="person-number-value" id="person2MobileFinal">-</span>
+                        </div>
+                        <div class="person-number-card">
+                            <span class="person-number-label">Email</span>
+                            <span class="person-number-value" id="person2EmailFinal">-</span>
+                        </div>
+                    </div>
+                    <div class="person-group-info">
+                        <h4>Group Analysis:</h4>
+                        <p id="person2GroupInfo">Calculating...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Match Details -->
+            <div class="group-match-details">
+                <h3 class="subsection-title">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Group Compatibility Analysis</span>
+                </h3>
+                <div class="compatibility-summary">
+                    <div class="summary-item">
+                        <h4><i class="fas fa-users"></i> Group Match Result</h4>
+                        <p id="groupMatchResult">Analyzing group alignment...</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4><i class="fas fa-lightbulb"></i> Compatibility Insights</h4>
+                        <div class="insights-list" id="groupInsights">
+                            <p>• Group analysis in progress...</p>
+                            <p>• Determining stronger groups...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matching Action Buttons -->
+            <div class="matching-action-buttons" id="matchingActionButtons">
+                <button id="downloadMatchingReport" class="action-btn download-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Download Match Report</span>
+                    <div class="action-energy"></div>
+                </button>
+                <button id="shareMatchingWhatsApp" class="action-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Share Match Analysis</span>
+                    <div class="action-energy"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-glow"></div>
+            <div class="footer-energy"></div>
+            <p>Designed with <i class="fas fa-heart"></i> using Vedic Numerology</p>
+            <p class="copyright">© 2023 Cosmic Harmony Analyzer | Quantum Edition</p>
+            <div class="tech-stack">
+                <span>Powered by: Neural AI • Quantum Computing • Tesla Energy</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Enhanced Modal -->
+    <div class="enhanced-modal" id="enhancedModal">
+        <div class="enhanced-modal-content">
+            <div class="modal-header">
+                <i class="fas fa-rocket"></i>
+                <h3>Quantum Report Ready</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-animation">
+                    <div class="success-ring"></div>
+                    <div class="success-check">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="success-particles"></div>
+                </div>
+                <p class="modal-message">Your cosmic harmony analysis is complete!</p>
+                <div class="modal-options">
+                    <button class="option-btn" id="downloadEnhanced">
+                        <i class="fas fa-download"></i>
+                        <span>Download HD Report</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn whatsapp-option" id="shareEnhanced">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Share via WhatsApp</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn view-option" id="viewReport">
+                        <i class="fas fa-eye"></i>
+                        <span>View in Browser</span>
+                        <div class="option-glow"></div>
+                    </button>
+                </div>
+                <div class="modal-tip">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Tip: HD report includes all calculations with Elon Musk-level graphics!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matching Modal -->
+    <div class="enhanced-modal" id="matchingModal">
+        <div class="enhanced-modal-content">
+            <div class="modal-header">
+                <i class="fas fa-heart"></i>
+                <h3>Group Match Ready!</h3>
+                <button class="modal-close" id="matchingModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-animation" id="matchingSuccessAnimation">
+                    <div class="success-ring"></div>
+                    <div class="success-check">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="success-particles"></div>
+                </div>
+                <p class="modal-message" id="matchingModalMessage">Your group compatibility analysis is complete!</p>
+                <div class="modal-options">
+                    <button class="option-btn" id="downloadMatchingEnhanced">
+                        <i class="fas fa-download"></i>
+                        <span>Download Match Report</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn whatsapp-option" id="shareMatchingEnhanced">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Share via WhatsApp</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn view-option" id="viewMatchingReport">
+                        <i class="fas fa-eye"></i>
+                        <span>View Match Details</span>
+                        <div class="option-glow"></div>
+                    </button>
+                </div>
+                <div class="modal-tip">
+                    <i class="fas fa-lightbulb"></i>
+                    <span id="matchingTip">Tip: HD match report includes both person details with group compatibility analysis!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
